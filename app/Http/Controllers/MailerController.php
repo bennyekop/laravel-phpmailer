@@ -25,19 +25,19 @@ class MailerController extends Controller {
             // Email server settings
             $mail->SMTPDebug = 0;
             $mail->isSMTP();
-            $mail->Host = 'geekyindonesia.com';             //  smtp host
+            $mail->Host = 'namadomain.com';             //  smtp host
             $mail->SMTPAuth = true;
-            $mail->Username = 'smtp@geekyindonesia.com';   //  sender username
-            $mail->Password = 'RNKvbrQ4KJ4T';       // sender password
+            $mail->Username = 'email@namadomain.com';   //  sender username
+            $mail->Password = 'XXXXXXXXX';       // sender password
             $mail->SMTPSecure = 'ssl';                  // encryption - ssl/tls
             $mail->Port = 465;                          // port - 587/465
 
-            $mail->setFrom('smtp@geekyindonesia.com', 'SMTP LARAVEL');
+            $mail->setFrom('email@namadomain.com', 'SMTP LARAVEL');
             $mail->addAddress($request->emailRecipient);
             $mail->addCC($request->emailCc);
             $mail->addBCC($request->emailBcc);
 
-            $mail->addReplyTo('smtp@geekyindonesia.com', '');
+            $mail->addReplyTo('email@namadomain.com', '');
 
             if(isset($_FILES['emailAttachments'])) {
                 for ($i=0; $i < count($_FILES['emailAttachments']['tmp_name']); $i++) {
